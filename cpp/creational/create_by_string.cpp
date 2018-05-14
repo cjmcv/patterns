@@ -1,3 +1,7 @@
+/*!
+* \brief. Receive a string as parameter to select 
+*         the object you want to constructe.
+*/
 #include <iostream>
 #include <memory>
 #include <map> 
