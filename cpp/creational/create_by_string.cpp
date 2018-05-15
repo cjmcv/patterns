@@ -1,11 +1,13 @@
 /*!
 * \brief. Receive a string as parameter to select 
 *         the object you want to constructe.
+* \pattern.  simple factory + singleton.
 */
 #include <iostream>
 #include <memory>
 #include <map> 
 
+// AbstractProduct: Animal
 class Animal {
 
 public:
@@ -14,14 +16,18 @@ public:
   }
 };
 
+// Product: Lion
 class Lion : public Animal {
 public:
+  Lion() :age(0) {}
   void GetSpecies() {
-    printf("Lion.\n");
+    printf("Lion. age: %d\n", age++);
   }
   static std::shared_ptr<Animal> CreateLion() {
     return std::shared_ptr<Animal>(new Lion());
   }
+private:
+  int age;
 };
 
 class Tiger : public Animal {
@@ -63,12 +69,12 @@ public:
   }
 
   // Registerer, set the mapping relation between operator's class name and it's specific pointer function.
-  int RegisterClass(std::string type, AnimalCreator getOpFunc) {
+  int RegisterClass(std::string type, AnimalCreator creator) {
     if (creator_map_.count(type) != 0) {
       printf("type %s is already registered.\n", type.c_str());
       return -1;
     }
-    creator_map_[type] = getOpFunc;
+    creator_map_[type] = creator;
     return 0;
   }
 
@@ -97,8 +103,13 @@ int main() {
   std::shared_ptr<Animal> animal_c = AnimalFactory::GetInstance().CreateByType("Leopard");
 
   animal_a->GetSpecies();
+  animal_a->GetSpecies();
+
   animal_b->GetSpecies();
   animal_c->GetSpecies();
+
+  std::shared_ptr<Animal> animal_d = AnimalFactory::GetInstance().CreateByType("Lion");
+  animal_d->GetSpecies();
 
   return 0;
 }
