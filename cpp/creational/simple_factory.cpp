@@ -1,27 +1,30 @@
 /*!
-* \brief. Receive a parameter to select
+* \brief. Simple factory. Receive a parameter to select
 *         the object you want to constructe.
 *
-* \pattern. factory method:
+* \pattern. Factory method:
 *           Define an interface for creating an object,
 *         but let subclasses decide which class to
 *         instantiate.Factory Method lets a class defer
 *         instantiation to subclasses
+* 
+*      AbstractProduct  < = >  Factory(for all of the products)
+*        |         |
+*    ProductA  ProductB
 */
 
 #include <iostream>
 #include <memory> 
 
-// AbstractProduct: Animal
+// AbstractProduct
 class Animal {
-
 public:
   virtual void GetSpecies() {
     printf("Animal.\n");
   }
 };
 
-// Product: Lion
+// Product
 class Lion : public Animal {
 public:
   Lion() :age(0) {}
@@ -58,10 +61,11 @@ public:
   }
 };
 
+// Factory
 typedef Animal *(*CREATOR)();
 class AnimalFactory { 
 public:
-  Animal *CreateHuman(CREATOR c) {
+  Animal *CreateAnimal(CREATOR c) {
     return (*c)();
   }
 };
@@ -69,16 +73,16 @@ public:
 int main() {
   AnimalFactory *factory = new AnimalFactory();
 
-  Animal *animal_a = factory->CreateHuman(Lion::Create);
-  Animal *animal_b = factory->CreateHuman(Tiger::Create);
-  Animal *animal_c = factory->CreateHuman(Leopard::Create);
+  Animal *animal_a = factory->CreateAnimal(Lion::Create);
+  Animal *animal_b = factory->CreateAnimal(Tiger::Create);
+  Animal *animal_c = factory->CreateAnimal(Leopard::Create);
 
   animal_a->GetSpecies();
   animal_a->GetSpecies();
 
   animal_b->GetSpecies();
   animal_c->GetSpecies();
-    
+
   delete animal_a;
   delete animal_b;
   delete animal_c;
