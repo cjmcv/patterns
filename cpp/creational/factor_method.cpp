@@ -58,8 +58,8 @@ public:
 // AbstractFactory
 class AnimalFactory {
 public:
-  Animal *CreateAnimal() {
-    return Lion::Create();
+  virtual Animal *CreateAnimal() {
+    return Animal::Create();
   }
 };
 
