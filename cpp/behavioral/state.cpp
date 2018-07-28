@@ -17,6 +17,7 @@
 // and be responsible for switching state.
 class Context {
 public:
+  virtual void Initialize(int state_num) = 0;
   virtual void SetState(int state_num) = 0;
   virtual void Request() = 0;
 };
@@ -66,36 +67,77 @@ public:
 // ConcreteContext.
 class TCPContext : public Context {
 public:
-  TCPContext(TCPState* state) {
-    this->state_ = state;
+  TCPContext() {
+    state_ = NULL;
+    state_accepted_ = NULL;
+    state_connected_ = NULL;
+    state_close_ = NULL;
+    state_listen_ = NULL;
   }
+
   ~TCPContext() {
-    if (NULL != state_)
-      delete state_;
+    if (state_accepted_ != NULL) {
+      delete state_accepted_;
+      state_accepted_ = NULL;
+    }
+    if (state_connected_ != NULL) {
+      delete state_connected_;
+      state_connected_ = NULL;
+    }
+    if (state_close_ != NULL) {
+      delete state_close_;
+      state_close_ = NULL;
+    }
+    if (state_listen_ != NULL) {
+      delete state_listen_;
+      state_listen_ = NULL;
+    }
   }
+
+  void Initialize(int state_num) {
+    SetState(state_num);
+  }
+
   void SetState(int state_num) {
-    if (NULL != state_)
-      delete state_;
     switch (state_num) {
     case 1:
-      this->state_ = new TCPAccepted(); break;
+      if(state_accepted_ == NULL)
+        state_accepted_ = new TCPAccepted(); 
+      this->state_ = state_accepted_;
+      break;
     case 2:
-      this->state_ = new TCPConnected(); break;
+      if(state_connected_ == NULL)
+        state_connected_ = new TCPConnected(); 
+      this->state_ = state_connected_;
+      break;
     case 3:
-      this->state_ = new TCPClose(); break;
+      if (state_close_ == NULL)
+        state_close_ = new TCPClose();
+      this->state_ = state_close_;
+      break;
     default: // 0 or default
-      this->state_ = new TCPListen(); break;
+      if (state_listen_ == NULL)
+        state_listen_ = new TCPListen();
+      this->state_ = state_listen_;
+	    break;
     }
   }
   void Request() {
     state_->Handle(this);
   }
+
 private:
   TCPState* state_;
+
+  TCPState* state_accepted_;
+  TCPState* state_connected_;
+  TCPState* state_close_;
+  TCPState* state_listen_;
 };
 
 int main() {
-  Context* context = new TCPContext(new TCPListen());
+  Context* context = new TCPContext();
+  context->Initialize(0);
 
   // The internal state will be changed by the request.
   context->Request();
