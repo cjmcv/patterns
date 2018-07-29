@@ -38,15 +38,17 @@ class Adapter(object):
 
 if __name__ == "__main__":
 
-    objects = []
-    dog = Dog()
-    print(dog.__dict__)
-    objects.append(Adapter(dog, make_noise=dog.bark))
-    print(objects[0].__dict__)
-    print(objects[0].original_dict())
-    cat = Cat()
-    objects.append(Adapter(cat, make_noise=cat.meow))
+  objects = []
+  dog = Dog()
+  print(dog.__dict__)
+  objects.append(Adapter(dog, make_noise=dog.bark))
+  print(objects[0].__dict__)
+  print(objects[0].original_dict())
+  cat = Cat()
+  objects.append(Adapter(cat, make_noise=cat.meow))
 
-    for obj in objects:
-        print("A {0} goes {1}".format(obj.obj_bak.name, obj.make_noise()))
+  # The function make_noise is converted from 
+  # the second input parameter of the constructor of Adapter.
+  for obj in objects:
+    print("A {0} goes {1}".format(obj.obj_bak.name, obj.make_noise()))
 
