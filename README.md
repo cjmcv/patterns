@@ -20,17 +20,17 @@ A collection of design patterns in C++ and Python.
 
 * 适配器模式：将一个类的接口变换成客户端所期待的另一种接口，从而使原本因接口不匹配而无法在一起工作的两个类能够在一起工作。{[cpp](https://github.com/cjmcv/design-pattern/blob/master/cpp/structural/adapter.cpp)} {[python](https://github.com/cjmcv/design-pattern/blob/master/python/structural/adapter.py)}
 
-* 装饰器模式：动态地给一个对象添加一些额外的职责。就增加功能来说，装饰模式相比生成子类更为灵活。{[cpp](https://github.com/cjmcv/design-pattern/blob/master/cpp/structural/decorator.cpp)}
+* 装饰器模式：动态地给一个对象添加一些额外的职责。就增加功能来说，装饰模式相比生成子类更为灵活。{[cpp](https://github.com/cjmcv/design-pattern/blob/master/cpp/structural/decorator.cpp)} {[python](https://github.com/cjmcv/design-pattern/blob/master/python/structural/decorator.py)}
 
-* 代理模式：为其他对象提供一种代理以控制对这个对象的访问。{[cpp](https://github.com/cjmcv/design-pattern/blob/master/cpp/structural/proxy.cpp)}
+* 代理模式：为其他对象提供一种代理以控制对这个对象的访问。{[cpp](https://github.com/cjmcv/design-pattern/blob/master/cpp/structural/proxy.cpp)} {[python](https://github.com/cjmcv/design-pattern/blob/master/python/structural/proxy.py)}
 
-* 外观模式：要求一个子系统的外部与其内部的通信必须通过一个统一的对象进行。门面模式提供一个高层次的接口，使得子系统更易于使用。{[cpp](https://github.com/cjmcv/design-pattern/blob/master/cpp/structural/facade.cpp)}
+* 外观模式：要求一个子系统的外部与其内部的通信必须通过一个统一的对象进行。门面模式提供一个高层次的接口，使得子系统更易于使用。{[cpp](https://github.com/cjmcv/design-pattern/blob/master/cpp/structural/facade.cpp)} {[python](https://github.com/cjmcv/design-pattern/blob/master/python/structural/facede.py)}
 
 * 桥接模式：将抽象和实现解耦，使得两者可以独立地变化。{[cpp](https://github.com/cjmcv/design-pattern/blob/master/cpp/structural/bridge.cpp)} {[python](https://github.com/cjmcv/design-pattern/blob/master/python/structural/bridge.py)}
 
-* 组合模式：将对象组合成树形结构以表示“部分-整体”的层次结构，使得用户对单个对象和组合对象的使用具有一致性。{[cpp](https://github.com/cjmcv/design-pattern/blob/master/cpp/structural/composite.cpp)}
+* 组合模式：将对象组合成树形结构以表示“部分-整体”的层次结构，使得用户对单个对象和组合对象的使用具有一致性。{[cpp](https://github.com/cjmcv/design-pattern/blob/master/cpp/structural/composite.cpp)} {[python](https://github.com/cjmcv/design-pattern/blob/master/python/structural/composite.py)}
 
-* 享元模式：使用共享对象可有效地支持大量的细粒度的对象。{[cpp](https://github.com/cjmcv/design-pattern/blob/master/cpp/structural/flyweight.cpp)}
+* 享元模式：使用共享对象可有效地支持大量的细粒度的对象。{[cpp](https://github.com/cjmcv/design-pattern/blob/master/cpp/structural/flyweight.cpp)} {[python](https://github.com/cjmcv/design-pattern/blob/master/python/structural/flyweight.py)}
 
 ## 三、行为型模式，共11种
 
