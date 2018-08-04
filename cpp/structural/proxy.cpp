@@ -49,9 +49,5 @@ int main() {
   delete sub;
   delete p;
 
-  //// Compare to Simple Factory here.
-  //AnimalFactory *factory = new AnimalFactory();
-  //Animal *animal_a = factory->CreateAnimal(Lion::Create);
-  //animal_a->GetSpecies();
   return 0;
 }
