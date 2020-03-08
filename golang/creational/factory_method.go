@@ -1,9 +1,7 @@
 /*!
-* \brief. Simple factory. Receive a parameter to select
-*         the object you want to constructe.
+* \brief. Factory method.
 *
-* \pattern. Factory method:
-*           Define an interface for creating an object,
+* \pattern. Define an interface for creating an object,
 *         but let subclasses decide which class to
 *         instantiate.Factory Method lets a class defer
 *         instantiation to subclasses
