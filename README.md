@@ -24,7 +24,7 @@ A collection of design patterns in C++ and Python.
 
 * 代理模式：为其他对象提供一种代理以控制对这个对象的访问。{[cpp](https://github.com/cjmcv/design-pattern/blob/master/cpp/structural/proxy.cpp)} {[python](https://github.com/cjmcv/design-pattern/blob/master/python/structural/proxy.py)}
 
-* 外观模式：要求一个子系统的外部与其内部的通信必须通过一个统一的对象进行。门面模式提供一个高层次的接口，使得子系统更易于使用。{[cpp](https://github.com/cjmcv/design-pattern/blob/master/cpp/structural/facade.cpp)} {[python](https://github.com/cjmcv/design-pattern/blob/master/python/structural/facede.py)}
+* 外观模式：要求一个子系统的外部与其内部的通信必须通过一个统一的对象进行。门面模式提供一个高层次的接口，使得子系统更易于使用。{[cpp](https://github.com/cjmcv/design-pattern/blob/master/cpp/structural/facade.cpp)} {[python](https://github.com/cjmcv/design-pattern/blob/master/python/structural/facade.py)}
 
 * 桥接模式：将抽象和实现解耦，使得两者可以独立地变化。{[cpp](https://github.com/cjmcv/design-pattern/blob/master/cpp/structural/bridge.cpp)} {[python](https://github.com/cjmcv/design-pattern/blob/master/python/structural/bridge.py)}
 
